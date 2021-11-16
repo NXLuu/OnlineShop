@@ -32,7 +32,17 @@ public class ItemShoes implements Serializable{
     
     
 
-    public String getName() {
+    public ItemShoes(int id2) {
+		// TODO Auto-generated constructor stub
+    	this.id = id2;
+	}
+
+
+
+
+
+
+	public String getName() {
         return name;
     }
 

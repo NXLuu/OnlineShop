@@ -11,11 +11,13 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import logicApplication.shoesDAO.ItemShoesDAO;
+import logicApplication.cartDAO.CartDAO;
+import logicApplication.cartDAO.CartDAOImpl;
+import model.cart.Cart;
 import model.shoes.ItemShoes;
 
-
-public class HomeServlet extends HttpServlet {
+@WebServlet("/cart/*")
+public class CartServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
 	
@@ -30,44 +32,59 @@ public class HomeServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		ItemShoesDAO itemShoesDAO = new ItemShoesDAO();
-		List<ItemShoes> listItemShoes =  itemShoesDAO.getAll();
-		request.setAttribute("listItemShoes", listItemShoes);
-		
-		String action = request.getServletPath();
-		RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
-		dispatcher.forward(request, response);
-//		try {
-//			switch (action) {
-////			case "/new":
-////				showNewForm(request, response);
-////				break;
-////			case "/insert":
-////				insertUser(request, response);
-////				break;
-////			case "/delete":
-////				deleteUser(request, response);
-////				break;
-////			case "/edit":
-////				showEditForm(request, response);
-////				break;
-////			case "/update":
-////				updateUser(request, response);
-////				break;
-//			case "/":
-//				listItemBook(request, response);
+		String action = request.getPathInfo();	
+		System.out.println(action);
+		if(action == null) {
+			action = "/";
+		}
+		try {
+			switch (action) {
+			case "/add":
+				addItemShoesToCart(request, response);
+				break;
+//			case "/insert":
+//				insertUser(request, response);
 //				break;
-//			}
-//		} catch (SQLException ex) {
-//			throw new ServletException(ex);
-//		}
+//			case "/delete":
+//				deleteUser(request, response);
+//				break;
+//			case "/edit":
+//				showEditForm(request, response);
+//				break;
+//			case "/update":
+//				updateUser(request, response);
+//				break;
+			case "/":
+				listItemInCart(request, response);
+				break;
+			default: 
+				break;
+			}
+		} catch (SQLException ex) {
+			throw new ServletException(ex);
+		}
 	}
 
-	private void listItemBook(HttpServletRequest request, HttpServletResponse response)
+	private void listItemInCart(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, IOException, ServletException {
 		
-		RequestDispatcher dispatcher = request.getRequestDispatcher("home.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("shoping-cart.jsp");
 		dispatcher.forward(request, response);
+	}
+	
+	private void addItemShoesToCart(HttpServletRequest request, HttpServletResponse response)
+			throws SQLException, IOException {
+		int id = Integer.parseInt(request.getParameter("id"));
+		ItemShoes itemBook = new ItemShoes(id);
+
+		CartDAOImpl cartDAO = new CartDAOImpl();
+		Cart cart = new Cart();
+		cart.setID(1);
+		cartDAO.addShoesItemToCart(cart, itemBook);
+
+//		User book = new User(id, name, email, country);
+//		userDAO.updateUser(book);
+		response.sendRedirect(request.getContextPath() + "/Home");
 	}
 
 //	private void showNewForm(HttpServletRequest request, HttpServletResponse response)

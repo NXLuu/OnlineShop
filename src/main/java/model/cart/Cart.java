@@ -6,7 +6,28 @@ public class Cart {
 	private Date dateCreated;
 	private int quantity;
 	private double totalPrice;
+	private String item;
+	private int ID;
 	
+	public Cart() {
+		super();
+	}
+
+	public int getID() {
+		return ID;
+	}
+
+	public void setID(int iD) {
+		ID = iD;
+	}
+
+	public String getItem() {
+		return item;
+	}
+	
+	public void setItem(String item) {
+		this.item = item;
+	}
 	public Date getDateCreated() {
 		return dateCreated;
 	}

@@ -8,4 +8,5 @@ public interface CustomerDAO {
 	public void addCustomer(Customer cust);
 	public void deleteCustomer(Customer cust);
 	public void viewOrder(Order order);
+	public Customer checkLogin(Customer customer);
 }

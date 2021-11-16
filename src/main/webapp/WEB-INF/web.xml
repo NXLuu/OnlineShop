@@ -8,10 +8,15 @@
     <servlet-name>Home</servlet-name>
     <servlet-class>controller.servlet.HomeServlet</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>Cart</servlet-name>
+    <servlet-class>controller.servlet.CartServlet</servlet-class>
+  </servlet>
   <servlet-mapping>
     <servlet-name>Home</servlet-name>
     <url-pattern>/Home</url-pattern>
   </servlet-mapping>
+  
   <session-config>
     <session-timeout>30</session-timeout>
   </session-config>
