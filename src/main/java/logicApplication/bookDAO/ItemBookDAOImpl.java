@@ -6,14 +6,13 @@
 package logicApplication.bookDAO;
 
 import static logicApplication.bookDAO.DAO.con;
-import model.book.Book;
-import model.book.Supplier;
-import model.book.ItemBook;
-import model.book.Catogery;
-import model.book.Publisher;
-import model.book.Size;
-import model.book.Translator;
-import model.book.Author;
+import Model.Author;
+import Model.Book;
+import Model.Catogery;
+import Model.ItemBook;
+import Model.Publisher;
+import Model.Supplier;
+import Model.Translator;
 import java.sql.PreparedStatement;
 import java.util.ArrayList;
 import java.sql.ResultSet;
@@ -24,8 +23,9 @@ import java.sql.ResultSet;
  * 
  * @author HP
  */
-public class ItemBookDAO extends DAO{
-    public boolean AddBook(ItemBook itembook){
+public class ItemBookDAOImpl extends DAO implements ItemBookDAO{
+    @Override
+    public boolean AddItemBook(ItemBook itembook){
         String sql = "INSERT INTO itembook(barcode,bookID,price,intro,discount) VALUES(?,?,?,?,?)";
         try {
             PreparedStatement ps =con.prepareStatement(sql);
@@ -41,7 +41,8 @@ public class ItemBookDAO extends DAO{
             return false;
         }
     }
-   public boolean editBook(ItemBook itembook){
+    @Override
+   public boolean EditItemBook(ItemBook itembook){
         String sql = "UPDATE itembook SET price=?, intro=?,discount=?  WHERE id=?";
         try{
             PreparedStatement ps = con.prepareStatement(sql);
@@ -55,7 +56,8 @@ public class ItemBookDAO extends DAO{
         }
         return true;
    }
-   public boolean deleteItemBook(ItemBook itembook){
+   @Override
+   public boolean DeleteItemBook(ItemBook itembook){
         String sql = "DELETE FROM itembook WHERE id=?";
         try{
             PreparedStatement ps = con.prepareStatement(sql);
@@ -67,7 +69,8 @@ public class ItemBookDAO extends DAO{
         }
         return true;
     }
-   public ArrayList<ItemBook> searchItemBook(String key){
+   @Override
+   public ArrayList<ItemBook> SearchItemBook(String key){
         ArrayList<ItemBook> result = new ArrayList<ItemBook>();
         String sql = "SELECT * FROM tblitembook WHERE name LIKE ?";
         try{
@@ -221,4 +224,6 @@ public class ItemBookDAO extends DAO{
         }   
         return result;
     }
+
+    
 }
