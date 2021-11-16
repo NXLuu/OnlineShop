@@ -1,10 +1,11 @@
 package logicApplication.cartDAO;
 
-import model.ItemShoes;
+
 import model.book.ItemBook;
 import model.clothes.ItemClothes;
 import model.electronics.ItemElectronic;
 import model.order.Payment;
+import model.shoes.ItemShoes;
 
 public interface CartDAO {
 	public void addElectronicsItemToCart(ItemElectronic electronicsItem);

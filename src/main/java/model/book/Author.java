@@ -12,7 +12,11 @@ import java.io.Serializable;
  * @author HP
  */
 public class Author implements Serializable{
-    private int id;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private int id;
     private String biography;
     private String name;
 

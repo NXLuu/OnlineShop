@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import model.shoes.Shoes;
-i
+
 //private int id;
 //    private String type, size, material, trademark, pattern, color;
 //    private boolean gender;
