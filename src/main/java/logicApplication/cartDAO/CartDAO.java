@@ -14,4 +14,6 @@ public interface CartDAO {
 	public boolean addShoesItemToCart(Cart cart,ItemShoes shoesItem);
 	public boolean addClothesItemToCart(Cart cart,ItemClothes clothesItem);
 	public void getPayment(Payment payment);
+	public int insertCart(Cart cart);
+	public boolean updateCart(Cart cart);
 }

@@ -5,7 +5,6 @@
  */
 package logicApplication.bookDAO;
 
-import static logicApplication.bookDAO.DAO.con;
 import model.book.Book;
 import model.book.Supplier;
 import model.book.ItemBook;
@@ -16,6 +15,9 @@ import model.book.Translator;
 import model.book.Author;
 import java.sql.PreparedStatement;
 import java.util.ArrayList;
+
+import logicApplication.DAO.DAO;
+
 import java.sql.ResultSet;
 
 

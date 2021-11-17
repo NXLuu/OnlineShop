@@ -19,7 +19,13 @@ public class Electronic implements Serializable{
     private Date createAt;
     private Date updateAt;
 
-    public Electronic(String name, String producer, String type, Date producerDate, Integer holdHouseId, Integer mobileId, Integer pcId, int deleted, Date createAt, Date updateAt) {
+    
+   
+    public Electronic() {
+		super();
+	}
+
+	public Electronic(String name, String producer, String type, Date producerDate, Integer holdHouseId, Integer mobileId, Integer pcId, int deleted, Date createAt, Date updateAt) {
         this.name = name;
         this.producer = producer;
         this.type = type;

@@ -1,8 +1,11 @@
 package controller.servlet;
 
-
 import java.io.IOException;
+import java.sql.Date;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 import jakarta.servlet.RequestDispatcher;
@@ -11,16 +14,20 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
+import logicApplication.cartDAO.CartDAO;
+import logicApplication.cartDAO.CartDAOImpl;
+import logicApplication.electronicsDAO.ItemElectronicsDAO;
 import logicApplication.shoesDAO.ItemShoesDAO;
+import model.cart.Cart;
+import model.electronics.ItemElectronic;
 import model.shoes.ItemShoes;
-
 
 public class HomeServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	
-	
+
 	public void init() {
-		
+
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -28,12 +35,35 @@ public class HomeServlet extends HttpServlet {
 		doGet(request, response);
 	}
 
+	public void createCart(HttpServletRequest request) {
+		HttpSession session = request.getSession();
+		if (session.getAttribute("cart") != null)
+			return;
+
+		long millis = System.currentTimeMillis();
+		java.sql.Date date = new java.sql.Date(millis);
+
+		Cart cart = new Cart();
+		CartDAO cartDAO = new CartDAOImpl();
+		int id = cartDAO.insertCart(cart);
+		cart.setID(id);
+		cart.setDateCreated(date);
+		cart.setQuantity(0);
+		cart.setTotalPrice(0);
+		session.setAttribute("cart", cart);
+	}
+
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+
 		ItemShoesDAO itemShoesDAO = new ItemShoesDAO();
-		List<ItemShoes> listItemShoes =  itemShoesDAO.getAll();
-		request.setAttribute("listItemShoes", listItemShoes);
+		ItemElectronicsDAO itemElectronicsDAO = new ItemElectronicsDAO();
+		List<ItemElectronic> listItemElectronic = itemElectronicsDAO.findAll();
 		
+		List<ItemShoes> listItemShoes = itemShoesDAO.getAll();
+		request.setAttribute("listItemShoes", listItemShoes);
+		request.setAttribute("listItemElectronic", listItemElectronic);
+		createCart(request);
 		String action = request.getServletPath();
 		RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
 		dispatcher.forward(request, response);
@@ -65,7 +95,7 @@ public class HomeServlet extends HttpServlet {
 
 	private void listItemBook(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, IOException, ServletException {
-		
+
 		RequestDispatcher dispatcher = request.getRequestDispatcher("home.jsp");
 		dispatcher.forward(request, response);
 	}

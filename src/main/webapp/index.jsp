@@ -49,7 +49,8 @@
 		<div class="humberger__menu__cart">
 			<ul>
 				<li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
-				<li><a href="<%=request.getContextPath()%>/cart"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
+				<li><a href="<%=request.getContextPath()%>/cart"><i
+						class="fa fa-shopping-bag"></i> <span>3</span></a></li>
 			</ul>
 			<div class="header__cart__price">
 				item: <span>$150.00</span>
@@ -71,7 +72,7 @@
 		</div>
 		<nav class="humberger__menu__nav mobile-menu">
 			<ul>
-				<li class="active"><a href="./index.jsp">Home</a></li>
+				<li class="active"><a href="<%=request.getContextPath()%>/Home">Home</a></li>
 				<li><a href="./shop-grid.jsp">Shop</a></li>
 				<li><a href="#">Pages</a>
 					<ul class="header__menu__dropdown">
@@ -140,13 +141,13 @@
 			<div class="row">
 				<div class="col-lg-3">
 					<div class="header__logo">
-						<a href="./index.jsp"><img src="img/logo.png" alt=""></a>
+						<a href="<%=request.getContextPath()%>/Home"><img src="img/logo.png" alt=""></a>
 					</div>
 				</div>
 				<div class="col-lg-6">
 					<nav class="header__menu">
 						<ul>
-							<li class="active"><a href="./index.jsp">Home</a></li>
+							<li class="active"><a href="<%=request.getContextPath()%>/Home">Home</a></li>
 							<li><a href="./shop-grid.jsp">Shop</a></li>
 							<li><a href="#">Pages</a>
 								<ul class="header__menu__dropdown">
@@ -163,7 +164,8 @@
 					<div class="header__cart">
 						<ul>
 							<li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
-							<li><a href="<%=request.getContextPath()%>/cart"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
+							<li><a href="<%=request.getContextPath()%>/cart"><i
+									class="fa fa-shopping-bag"></i> <span>3</span></a></li>
 						</ul>
 						<div class="header__cart__price">
 							item: <span>$150.00</span>
@@ -188,17 +190,11 @@
 							<i class="fa fa-bars"></i> <span>All departments</span>
 						</div>
 						<ul>
-							<li><a href="#">Fresh Meat</a></li>
-							<li><a href="#">Vegetables</a></li>
-							<li><a href="#">Fruit & Nut Gifts</a></li>
-							<li><a href="#">Fresh Berries</a></li>
-							<li><a href="#">Ocean Foods</a></li>
-							<li><a href="#">Butter & Eggs</a></li>
-							<li><a href="#">Fastfood</a></li>
-							<li><a href="#">Fresh Onion</a></li>
-							<li><a href="#">Papayaya & Crisps</a></li>
-							<li><a href="#">Oatmeal</a></li>
-							<li><a href="#">Fresh Bananas</a></li>
+							<li><a href="<%=request.getContextPath()%>/books">Books</a></li>
+							<li><a href="<%=request.getContextPath()%>/shoes">Shoes</a></li>
+							<li><a href="<%=request.getContextPath()%>/clothes">Clothes</a></li>
+							<li><a href="<%=request.getContextPath()%>/electronics">Electronics</a></li>
+
 						</ul>
 					</div>
 				</div>
@@ -223,11 +219,12 @@
 							</div>
 						</div>
 					</div>
-					<div class="hero__item set-bg" data-setbg="img/hero/banner.jpg">
+					<div class="hero__item set-bg"
+						data-setbg="https://langgo.edu.vn/public/files/upload/default/images/black-friday-composition-with-four-bags-cart-23-2147709334.jpg">
 						<div class="hero__text">
-							<span>FRUIT FRESH</span>
+							<span>Online Shop</span>
 							<h2>
-								Vegetable <br />100% Organic
+								Clothes and ... <br />100% Auth
 							</h2>
 							<p>Free Pickup and Delivery Available</p>
 							<a href="#" class="primary-btn">SHOP NOW</a>
@@ -246,41 +243,33 @@
 				<div class="categories__slider owl-carousel">
 					<div class="col-lg-3">
 						<div class="categories__item set-bg"
-							data-setbg="img/categories/cat-1.jpg">
+							data-setbg="https://3dwarehouse.sketchup.com/warehouse/v1.0/publiccontent/9688850f-f59a-4a8c-af90-686efeadba94">
 							<h5>
-								<a href="#">Fresh Fruit</a>
+								<a href="#">Electronic</a>
 							</h5>
 						</div>
 					</div>
 					<div class="col-lg-3">
 						<div class="categories__item set-bg"
-							data-setbg="img/categories/cat-2.jpg">
+							data-setbg="https://previews.123rf.com/images/anastasialila/anastasialila1802/anastasialila180200239/95574868-beautiful-dress-hand-drawn-vector-illustration-.jpg">
 							<h5>
-								<a href="#">Dried Fruit</a>
+								<a href="#">Clothes</a>
 							</h5>
 						</div>
 					</div>
 					<div class="col-lg-3">
 						<div class="categories__item set-bg"
-							data-setbg="img/categories/cat-3.jpg">
+							data-setbg="https://assets.adidas.com/images/h_840,f_auto,q_auto:sensitive,fl_lossy,c_fill,g_auto/5bc6230d24924736ab03ab4a009aed6c_9366/Fluidstreet_Shoes_Black_FW1703_01_standard.jpg">
 							<h5>
-								<a href="#">Vegetables</a>
+								<a href="#">Shoes</a>
 							</h5>
 						</div>
 					</div>
 					<div class="col-lg-3">
 						<div class="categories__item set-bg"
-							data-setbg="img/categories/cat-4.jpg">
+							data-setbg="https://data.europa.eu/sites/default/files/news/2020-08-06-edp_book_club.png">
 							<h5>
-								<a href="#">drink fruits</a>
-							</h5>
-						</div>
-					</div>
-					<div class="col-lg-3">
-						<div class="categories__item set-bg"
-							data-setbg="img/categories/cat-5.jpg">
-							<h5>
-								<a href="#">drink fruits</a>
+								<a href="#">Book</a>
 							</h5>
 						</div>
 					</div>
@@ -301,35 +290,66 @@
 					<div class="featured__controls">
 						<ul>
 							<li class="active" data-filter="*">All</li>
-							<li data-filter=".oranges">Oranges</li>
-							<li data-filter=".fresh-meat">Fresh Meat</li>
-							<li data-filter=".vegetables">Vegetables</li>
-							<li data-filter=".fastfood">Fastfood</li>
+							<li data-filter=".books">Books</li>
+							<li data-filter=".shoes">Shoes</li>
+							<li data-filter=".clothes">Clothes</li>
+							<li data-filter=".electronics">Electronics</li>
 						</ul>
 					</div>
 				</div>
 			</div>
 			<div class="row featured__filter">
 				<c:forEach var="itemShoes" items="${listItemShoes}">
-					<div class="col-lg-3 col-md-4 col-sm-6 mix oranges fresh-meat">
+					<div class="col-lg-3 col-md-4 col-sm-6 shoes ">
 						<div class="featured__item">
 							<div class="featured__item__pic set-bg"
 								data-setbg="${itemShoes.getImage()}">
 								<ul class="featured__item__pic__hover">
 									<li><a href="#"><i class="fa fa-heart"></i></a></li>
 									<li><a href="#"><i class="fa fa-retweet"></i></a></li>
-									<li><a href="<%=request.getContextPath()%>/cart/add?id=<c:out value='${itemShoes.getId()}' />"><i class="fa fa-shopping-cart"></i></a></li>
+									<li><a
+										href="<%=request.getContextPath()%>/cart/add?id=<c:out value='${itemShoes.getId()}' />"><i
+											class="fa fa-shopping-cart"></i></a></li>
 								</ul>
 							</div>
 							<div class="featured__item__text">
 								<h6>
 									<a href="#"><c:out value="${itemShoes.getName()}" /></a>
 								</h6>
-								<h5>$<c:out value="${itemShoes.getPrice()}" /></h5>
+								<h5>
+									$
+									<c:out value="${itemShoes.getPrice()}" />
+								</h5>
 							</div>
 						</div>
 					</div>
 				</c:forEach>
+					<c:forEach var="itemElectronic" items="${listItemElectronic}">
+					<div class="col-lg-3 col-md-4 col-sm-6 electronics ">
+						<div class="featured__item">
+							<div class="featured__item__pic set-bg"
+								data-setbg="${itemElectronic.getImage()}">
+								<ul class="featured__item__pic__hover">
+									<li><a href="#"><i class="fa fa-heart"></i></a></li>
+									<li><a href="#"><i class="fa fa-retweet"></i></a></li>
+									<li><a
+										href="<%=request.getContextPath()%>/cart/add?id=<c:out value='${itemElectronic.getId()}' />"><i
+											class="fa fa-shopping-cart"></i></a></li>
+								</ul>
+							</div>
+							<div class="featured__item__text">
+								<h6>
+									<a href="#"><c:out value="${itemElectronic.getElectronic().getName()}" /></a>
+								</h6>
+								<h5>
+									$
+									<c:out value="${itemElectronic.getPrice()}" />
+								</h5>
+							</div>
+						</div>
+					</div>
+				</c:forEach>
+				
 
 
 			</div>
@@ -343,12 +363,12 @@
 			<div class="row">
 				<div class="col-lg-6 col-md-6 col-sm-6">
 					<div class="banner__pic">
-						<img src="img/banner/banner-1.jpg" alt="">
+						<img src="https://cf.shopee.vn/file/61be98c0d5ff507cb0291c778d3d2ea6" alt="">
 					</div>
 				</div>
 				<div class="col-lg-6 col-md-6 col-sm-6">
 					<div class="banner__pic">
-						<img src="img/banner/banner-2.jpg" alt="">
+						<img src="https://cf.shopee.vn/file/5d84ce35767c3a2ea1c62e8c535415e2" alt="">
 					</div>
 				</div>
 			</div>
@@ -549,73 +569,6 @@
 	<!-- Latest Product Section End -->
 
 	<!-- Blog Section Begin -->
-	<section class="from-blog spad">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-12">
-					<div class="section-title from-blog__title">
-						<h2>From The Blog</h2>
-					</div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-lg-4 col-md-4 col-sm-6">
-					<div class="blog__item">
-						<div class="blog__item__pic">
-							<img src="img/blog/blog-1.jpg" alt="">
-						</div>
-						<div class="blog__item__text">
-							<ul>
-								<li><i class="fa fa-calendar-o"></i> May 4,2019</li>
-								<li><i class="fa fa-comment-o"></i> 5</li>
-							</ul>
-							<h5>
-								<a href="#">Cooking tips make cooking simple</a>
-							</h5>
-							<p>Sed quia non numquam modi tempora indunt ut labore et
-								dolore magnam aliquam quaerat</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-4 col-sm-6">
-					<div class="blog__item">
-						<div class="blog__item__pic">
-							<img src="img/blog/blog-2.jpg" alt="">
-						</div>
-						<div class="blog__item__text">
-							<ul>
-								<li><i class="fa fa-calendar-o"></i> May 4,2019</li>
-								<li><i class="fa fa-comment-o"></i> 5</li>
-							</ul>
-							<h5>
-								<a href="#">6 ways to prepare breakfast for 30</a>
-							</h5>
-							<p>Sed quia non numquam modi tempora indunt ut labore et
-								dolore magnam aliquam quaerat</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-4 col-sm-6">
-					<div class="blog__item">
-						<div class="blog__item__pic">
-							<img src="img/blog/blog-3.jpg" alt="">
-						</div>
-						<div class="blog__item__text">
-							<ul>
-								<li><i class="fa fa-calendar-o"></i> May 4,2019</li>
-								<li><i class="fa fa-comment-o"></i> 5</li>
-							</ul>
-							<h5>
-								<a href="#">Visit the clean farm in the US</a>
-							</h5>
-							<p>Sed quia non numquam modi tempora indunt ut labore et
-								dolore magnam aliquam quaerat</p>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
 	<!-- Blog Section End -->
 
 	<!-- Footer Section Begin -->
@@ -625,7 +578,7 @@
 				<div class="col-lg-3 col-md-6 col-sm-6">
 					<div class="footer__about">
 						<div class="footer__about__logo">
-							<a href="./index.jsp"><img src="img/logo.png" alt=""></a>
+							<a href="<%=request.getContextPath()%>/Home"><img src="img/logo.png" alt=""></a>
 						</div>
 						<ul>
 							<li>Address: 60-49 Road 11378 New York</li>
@@ -673,28 +626,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="row">
-				<div class="col-lg-12">
-					<div class="footer__copyright">
-						<div class="footer__copyright__text">
-							<p>
-								<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-								Copyright &copy;
-								<script>
-									document.write(new Date().getFullYear());
-								</script>
-								All rights reserved | This template is made with <i
-									class="fa fa-heart" aria-hidden="true"></i> by <a
-									href="https://colorlib.com" target="_blank">Colorlib</a>
-								<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-							</p>
-						</div>
-						<div class="footer__copyright__payment">
-							<img src="img/payment-item.png" alt="">
-						</div>
-					</div>
-				</div>
-			</div>
+			
 		</div>
 	</footer>
 	<!-- Footer Section End -->

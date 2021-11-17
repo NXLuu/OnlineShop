@@ -6,7 +6,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import model.electronics.*;
 
-public class ElectronicsDAO extends DAO implements ElectronicsDAOImpl {
+public class ElectronicsDAO extends logicApplication.DAO.DAO implements ElectronicsDAOImpl {
 
 	@Override
 	public void insertElectronics(Electronic electronic) {

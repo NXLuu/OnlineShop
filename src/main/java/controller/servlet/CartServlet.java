@@ -1,8 +1,8 @@
 package controller.servlet;
 
-
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 import jakarta.servlet.RequestDispatcher;
@@ -11,18 +11,20 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import logicApplication.cartDAO.CartDAO;
 import logicApplication.cartDAO.CartDAOImpl;
+import logicApplication.shoesDAO.ItemShoesDAO;
+import logicApplication.shoesDAO.ShoesDAO;
 import model.cart.Cart;
 import model.shoes.ItemShoes;
 
 @WebServlet("/cart/*")
 public class CartServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	
-	
+
 	public void init() {
-		
+
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -32,9 +34,8 @@ public class CartServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String action = request.getPathInfo();	
-		System.out.println(action);
-		if(action == null) {
+		String action = request.getPathInfo();
+		if (action == null) {
 			action = "/";
 		}
 		try {
@@ -45,9 +46,9 @@ public class CartServlet extends HttpServlet {
 //			case "/insert":
 //				insertUser(request, response);
 //				break;
-//			case "/delete":
-//				deleteUser(request, response);
-//				break;
+			case "/delete":
+				deleteItem(request, response);
+				break;
 //			case "/edit":
 //				showEditForm(request, response);
 //				break;
@@ -57,7 +58,7 @@ public class CartServlet extends HttpServlet {
 			case "/":
 				listItemInCart(request, response);
 				break;
-			default: 
+			default:
 				break;
 			}
 		} catch (SQLException ex) {
@@ -68,19 +69,51 @@ public class CartServlet extends HttpServlet {
 	private void listItemInCart(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, IOException, ServletException {
 		
+		Cart cart = getCart(request);
+
+		if (cart.getItem() != null) {
+			ItemShoesDAO shoesDAO = new ItemShoesDAO();
+			String[] items = cart.getItem().split("-");
+			List<ItemShoes> itemShoes = new ArrayList<ItemShoes>();
+			for (String item : items) {
+				System.out.print(item);
+				ItemShoes shoesItem = shoesDAO.getItemShoesByID(Integer.parseInt(item));
+				if (shoesItem != null)
+					itemShoes.add(shoesItem);
+			}
+			request.setAttribute("itemShoes", itemShoes);
+		}
+
 		RequestDispatcher dispatcher = request.getRequestDispatcher("shoping-cart.jsp");
 		dispatcher.forward(request, response);
 	}
-	
+
+	private Cart getCart(HttpServletRequest request) {
+		HttpSession session = request.getSession();
+		Cart cart = (Cart) session.getAttribute("cart");
+		return cart;
+	}
+
 	private void addItemShoesToCart(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, IOException {
 		int id = Integer.parseInt(request.getParameter("id"));
-		ItemShoes itemBook = new ItemShoes(id);
-
+		ItemShoesDAO itemShoesDAO = new ItemShoesDAO();
+		ItemShoes itemshoes = itemShoesDAO.getItemShoesByID(id);
+		itemshoes.setId(id);
 		CartDAOImpl cartDAO = new CartDAOImpl();
-		Cart cart = new Cart();
-		cart.setID(1);
-		cartDAO.addShoesItemToCart(cart, itemBook);
+
+		Cart cart = getCart(request);
+
+		System.out.print(itemshoes.getName());
+		cartDAO.addShoesItemToCart(cart, itemshoes);
+		cart.setQuantity(cart.getQuantity() + 1);
+		cart.setTotalPrice(cart.getTotalPrice() + itemshoes.getPrice());
+		String item = "";
+		if (cart.getItem() != null)
+			item = cart.getItem() + "-" + id;
+		item = "" + id;
+		cart.setItem(item);
+		cartDAO.updateCart(cart);
 
 //		User book = new User(id, name, email, country);
 //		userDAO.updateUser(book);
@@ -125,12 +158,25 @@ public class CartServlet extends HttpServlet {
 //		response.sendRedirect("list");
 //	}
 //
-//	private void deleteUser(HttpServletRequest request, HttpServletResponse response) 
-//			throws SQLException, IOException {
-//		int id = Integer.parseInt(request.getParameter("id"));
-////		userDAO.deleteUser(id);
-//		response.sendRedirect("list");
-//
-//	}
+	private void deleteItem(HttpServletRequest request, HttpServletResponse response) 
+			throws SQLException, IOException {
+		int id = Integer.parseInt(request.getParameter("id"));
+		Cart cart = getCart(request);
+		String newitem = "";
+		ItemShoesDAO itemShoesDAO = new ItemShoesDAO();
+		String[] items = cart.getItem().split("-");
+		for (String item : items) {
+			System.out.print(item);
+			if (id != Integer.parseInt(item)) {
+				newitem += "-" + item;
+			}
+		}
+		if (newitem == "")
+			cart.setItem(null);
+		else cart.setItem(newitem);
+		CartDAOImpl cartDAO = new CartDAOImpl();
+		cartDAO.updateCart(cart);
+		response.sendRedirect(request.getContextPath() +"/cart");
+	}
 
 }

@@ -22,6 +22,8 @@ import java.sql.ResultSet;
 
 import java.util.ArrayList;
 
+import logicApplication.DAO.DAO;
+
 /**
  *
  * @author HP

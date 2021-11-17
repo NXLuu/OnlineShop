@@ -15,8 +15,54 @@ public class ItemElectronic implements Serializable{
     private int deleted;
     private Date createAt;
     private Date updateAt;
+    private String image;
+    private Electronic electronic;
+    
+    
+    public ItemElectronic(int id, float price, Float discount, int electronicId, int deleted, Date createAt,
+			Date updateAt, String image, Electronic electronic) {
+		super();
+		this.id = id;
+		this.price = price;
+		this.discount = discount;
+		this.electronicId = electronicId;
+		this.deleted = deleted;
+		this.createAt = createAt;
+		this.updateAt = updateAt;
+		this.image = image;
+		this.electronic = electronic;
+	}
 
-    public ItemElectronic(float price, Float discount, int electronicId, int deleted, Date createAt, Date updateAt) {
+	public Electronic getElectronic() {
+		return electronic;
+	}
+
+	public void setElectronic(Electronic electronic) {
+		this.electronic = electronic;
+	}
+
+	public ItemElectronic(int id, float price, Float discount, int electronicId, int deleted, Date createAt,
+			Date updateAt, String image) {
+		super();
+		this.id = id;
+		this.price = price;
+		this.discount = discount;
+		this.electronicId = electronicId;
+		this.deleted = deleted;
+		this.createAt = createAt;
+		this.updateAt = updateAt;
+		this.image = image;
+	}
+
+	public String getImage() {
+		return image;
+	}
+
+	public void setImage(String image) {
+		this.image = image;
+	}
+
+	public ItemElectronic(float price, Float discount, int electronicId, int deleted, Date createAt, Date updateAt) {
         this.price = price;
         this.discount = discount;
         this.electronicId = electronicId;

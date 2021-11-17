@@ -13,7 +13,7 @@ import model.electronics.*;
  *
  * @author thevu
  */
-public class ItemElectronicsDAO extends DAO implements ItemElectronicsDAOImpl {
+public class ItemElectronicsDAO extends logicApplication.DAO.DAO implements ItemElectronicsDAOImpl {
 
 	@Override
 	public void insertElectronicsItem(ItemElectronic itemElectronic) {
@@ -70,22 +70,32 @@ public class ItemElectronicsDAO extends DAO implements ItemElectronicsDAOImpl {
 	}
 
 	@Override
-	public void findAll(List<ItemElectronic> list) {
+	public List<ItemElectronic>  findAll() {
 		List<ItemElectronic> electronics = new ArrayList<>();
-
+		
 		try {
 			PreparedStatement preparedStatement = con.prepareStatement("SELECT * FROM item_electronic");
 
 			ResultSet rs = preparedStatement.executeQuery();
 			while (rs.next()) {
+				PreparedStatement preparedStatement2 = con.prepareStatement("SELECT * FROM electronic where id=?");
+				preparedStatement2.setInt(1, rs.getInt(4));
+				ResultSet rs2 = preparedStatement.executeQuery();
+				Electronic elec = new Electronic();
+				while (rs2.next()) {
+					elec.setName(rs2.getString(2));
+					elec.setId(rs2.getInt(1));
+				}
+				
 				electronics.add(new ItemElectronic(rs.getInt(1), rs.getFloat(2), rs.getFloat(3), rs.getInt(4),
-						rs.getInt(5), rs.getDate(6), rs.getDate(7)));
+						rs.getInt(5), rs.getDate(6), rs.getDate(7), rs.getString(8), elec));
 			}
-
+			
 		} catch (SQLException e) {
 			e.printStackTrace();
-
+			
 		}
+		return electronics;
 	}
 
 }
