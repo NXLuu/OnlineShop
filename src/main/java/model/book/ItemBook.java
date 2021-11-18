@@ -17,8 +17,27 @@ public class ItemBook implements Serializable{
     private float price;
     private String intro;
     private String discount;
+    private String image;
+    
+    public ItemBook(String barcode, Book book, float price, String intro, String discount, String image) {
+		super();
+		this.barcode = barcode;
+		this.book = book;
+		this.price = price;
+		this.intro = intro;
+		this.discount = discount;
+		this.image = image;
+	}
 
-    public ItemBook() {
+	public String getImage() {
+		return image;
+	}
+
+	public void setImage(String image) {
+		this.image = image;
+	}
+
+	public ItemBook() {
         super();
     }
 

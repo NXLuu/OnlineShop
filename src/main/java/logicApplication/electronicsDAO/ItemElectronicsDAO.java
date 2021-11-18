@@ -69,10 +69,36 @@ public class ItemElectronicsDAO extends logicApplication.DAO.DAO implements Item
 		}
 	}
 
+	public ItemElectronic getListItemElec(int key) {
+		try {
+			PreparedStatement preparedStatement = con.prepareStatement("SELECT * FROM item_electronic WHERE id = ?");
+			preparedStatement.setInt(1, key);
+			ResultSet rs = preparedStatement.executeQuery();
+			while (rs.next()) {
+				PreparedStatement preparedStatement2 = con.prepareStatement("SELECT * FROM electronic where id=?");
+				preparedStatement2.setInt(1, rs.getInt(4));
+				ResultSet rs2 = preparedStatement2.executeQuery();
+				Electronic elec = new Electronic();
+				while (rs2.next()) {
+					elec.setName(rs2.getString(2));
+					elec.setId(rs2.getInt(1));
+				}
+
+				return new ItemElectronic(rs.getInt(1), rs.getFloat(2), rs.getFloat(3), rs.getInt(4),
+						rs.getInt(5), rs.getDate(6), rs.getDate(7), rs.getString(8), elec);
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+
+		}
+		return null;
+	}
+
 	@Override
-	public List<ItemElectronic>  findAll() {
+	public List<ItemElectronic> findAll() {
 		List<ItemElectronic> electronics = new ArrayList<>();
-		
+
 		try {
 			PreparedStatement preparedStatement = con.prepareStatement("SELECT * FROM item_electronic");
 
@@ -80,20 +106,20 @@ public class ItemElectronicsDAO extends logicApplication.DAO.DAO implements Item
 			while (rs.next()) {
 				PreparedStatement preparedStatement2 = con.prepareStatement("SELECT * FROM electronic where id=?");
 				preparedStatement2.setInt(1, rs.getInt(4));
-				ResultSet rs2 = preparedStatement.executeQuery();
+				ResultSet rs2 = preparedStatement2.executeQuery();
 				Electronic elec = new Electronic();
 				while (rs2.next()) {
 					elec.setName(rs2.getString(2));
 					elec.setId(rs2.getInt(1));
 				}
-				
+
 				electronics.add(new ItemElectronic(rs.getInt(1), rs.getFloat(2), rs.getFloat(3), rs.getInt(4),
 						rs.getInt(5), rs.getDate(6), rs.getDate(7), rs.getString(8), elec));
 			}
-			
+
 		} catch (SQLException e) {
 			e.printStackTrace();
-			
+
 		}
 		return electronics;
 	}

@@ -15,11 +15,17 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
+import logicApplication.bookDAO.ItemBookDAO;
+import logicApplication.bookDAO.ItemBookDAOImpl;
 import logicApplication.cartDAO.CartDAO;
 import logicApplication.cartDAO.CartDAOImpl;
+import logicApplication.clothesDAO.ItemClothesDAO;
+import logicApplication.clothesDAO.ItemClothesDAOImpl;
 import logicApplication.electronicsDAO.ItemElectronicsDAO;
-import logicApplication.shoesDAO.ItemShoesDAO;
+import logicApplication.shoesDAO.ItemShoesDAOImpl;
+import model.book.ItemBook;
 import model.cart.Cart;
+import model.clothes.ItemClothes;
 import model.electronics.ItemElectronic;
 import model.shoes.ItemShoes;
 
@@ -56,13 +62,23 @@ public class HomeServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		ItemShoesDAO itemShoesDAO = new ItemShoesDAO();
+		ItemShoesDAOImpl itemShoesDAOImpl = new ItemShoesDAOImpl();
 		ItemElectronicsDAO itemElectronicsDAO = new ItemElectronicsDAO();
+		ItemBookDAOImpl itemBookDao = new ItemBookDAOImpl();
+		List<ItemBook> listItemBooks = itemBookDao.findAll("");
+		
+		ItemClothesDAO itemCloDAO = new ItemClothesDAOImpl();
 		List<ItemElectronic> listItemElectronic = itemElectronicsDAO.findAll();
 		
-		List<ItemShoes> listItemShoes = itemShoesDAO.getAll();
+		List<ItemClothes> listItemCloth = itemCloDAO.searchItemClothes("");
+		request.setAttribute("listItemCloth", listItemCloth);
+		
+		List<ItemShoes> listItemShoes = itemShoesDAOImpl.getAll();
 		request.setAttribute("listItemShoes", listItemShoes);
+		
 		request.setAttribute("listItemElectronic", listItemElectronic);
+		
+		request.setAttribute("listItemBooks", listItemBooks);
 		createCart(request);
 		String action = request.getServletPath();
 		RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");

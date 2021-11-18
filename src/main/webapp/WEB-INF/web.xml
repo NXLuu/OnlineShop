@@ -12,6 +12,10 @@
     <servlet-name>Cart</servlet-name>
     <servlet-class>controller.servlet.CartServlet</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>Checkout</servlet-name>
+    <servlet-class>controller.servlet.CheckoutServlet</servlet-class>
+  </servlet>
   <servlet-mapping>
     <servlet-name>Home</servlet-name>
     <url-pattern>/Home</url-pattern>

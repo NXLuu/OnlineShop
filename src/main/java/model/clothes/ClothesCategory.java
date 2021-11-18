@@ -11,35 +11,34 @@ import java.io.Serializable;
  *
  * @author Ha Ngoc Bun
  */
-public class ClothesCategory implements Serializable{
-    private int id;
-    private String type;
+public class ClothesCategory implements Serializable {
+	private int id;
+	private String type;
 
-    public ClothesCategory() {
-        super();
-    }
+	public ClothesCategory() {
+		super();
+	}
 
-    public ClothesCategory(int id, String type) {
-        super();
-        this.id = id;
-        this.type = type;
-    }
+	public ClothesCategory(int id, String type) {
+		super();
+		this.id = id;
+		this.type = type;
+	}
 
-    public int getId() {
-        return id;
-    }
+	public int getId() {
+		return id;
+	}
 
-    public void setId(int id) {
-        this.id = id;
-    }
+	public void setId(int id) {
+		this.id = id;
+	}
 
-    public String getType() {
-        return type;
-    }
+	public String getType() {
+		return type;
+	}
 
-    public void setType(String type) {
-        this.type = type;
-    }
-    
-    
+	public void setType(String type) {
+		this.type = type;
+	}
+
 }

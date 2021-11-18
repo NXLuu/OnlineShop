@@ -11,15 +11,15 @@ import java.io.Serializable;
  *
  * @author HP
  */
-public class Catogery implements Serializable{
+public class Category implements Serializable{
     private int id;
     private String type;
 
-    public Catogery() {
+    public Category() {
         super();
     }
 
-    public Catogery(String type) {
+    public Category(String type) {
         super();
         this.type = type;
     }

@@ -11,75 +11,65 @@ import java.io.Serializable;
  *
  * @author Ha Ngoc Bun
  */
-public class ItemClothes implements Serializable{
-    private int id;
-    private Float price;
-    private String image;
-    private String description;
-    private int clothesID;
-    private int cartID;
 
-    public ItemClothes() {
-        super();
-    }
+public class ItemClothes implements Serializable {
+	private int id;
+	private Float price;
+	private String image;
+	private String description;
+	private Clothes clothes;
+//	    private int cartID;
 
-    public ItemClothes(int id, Float price, String image, String description, int clothesID, int cartID) {
-        super();
-        this.id = id;
-        this.price = price;
-        this.image = image;
-        this.description = description;
-        this.clothesID = clothesID;
-        this.cartID = cartID;
-    }
+	public ItemClothes() {
+		super();
+	}
 
-    public int getId() {
-        return id;
-    }
+	public ItemClothes(int id, Float price, String image, String description, Clothes clothes) {
+		this.id = id;
+		this.price = price;
+		this.image = image;
+		this.description = description;
+		this.clothes = clothes;
+	}
 
-    public void setId(int id) {
-        this.id = id;
-    }
+	public int getId() {
+		return id;
+	}
 
-    public Float getPrice() {
-        return price;
-    }
+	public void setId(int id) {
+		this.id = id;
+	}
 
-    public void setPrice(Float price) {
-        this.price = price;
-    }
+	public Float getPrice() {
+		return price;
+	}
 
-    public String getImage() {
-        return image;
-    }
+	public void setPrice(Float price) {
+		this.price = price;
+	}
 
-    public void setImage(String image) {
-        this.image = image;
-    }
+	public String getImage() {
+		return image;
+	}
 
-    public String getDescription() {
-        return description;
-    }
+	public void setImage(String image) {
+		this.image = image;
+	}
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
+	public String getDescription() {
+		return description;
+	}
 
-    public int getClothesID() {
-        return clothesID;
-    }
+	public void setDescription(String description) {
+		this.description = description;
+	}
 
-    public void setClothesID(int clothesID) {
-        this.clothesID = clothesID;
-    }
+	public Clothes getClothes() {
+		return clothes;
+	}
 
-    public int getCartID() {
-        return cartID;
-    }
+	public void setClothes(Clothes clothes) {
+		this.clothes = clothes;
+	}
 
-    public void setCartID(int cartID) {
-        this.cartID = cartID;
-    }
-
-    
 }

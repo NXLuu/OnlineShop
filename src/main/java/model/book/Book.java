@@ -24,14 +24,16 @@ public class Book implements Serializable{
     private ArrayList<Translator> translator;
     private Supplier supplier;
     private Publisher publisher;
-    private ArrayList<Catogery> catogery;
+    private ArrayList<Category> category;
     private ArrayList<Author> author;
 
+    
+    
     public Book() {
         super();
     }
 
-    public Book(String ISBN, String title, String summary, Date publicationDate, int numberOfPages, String language, String size, ArrayList<Translator> translator, Supplier supplier, Publisher publisher, ArrayList<Catogery> catogery, ArrayList<Author> author) {
+    public Book(String ISBN, String title, String summary, Date publicationDate, int numberOfPages, String language, String size, ArrayList<Translator> translator, Supplier supplier, Publisher publisher, ArrayList<Category> category, ArrayList<Author> author) {
         this.ISBN = ISBN;
         this.title = title;
         this.summary = summary;
@@ -42,7 +44,7 @@ public class Book implements Serializable{
         this.translator = translator;
         this.supplier = supplier;
         this.publisher = publisher;
-        this.catogery = catogery;
+        this.category = category;
         this.author = author;
     }
 
@@ -126,12 +128,12 @@ public class Book implements Serializable{
         this.publisher = publisher;
     }
 
-    public ArrayList<Catogery> getCatogery() {
-        return catogery;
+    public ArrayList<Category> getCategory() {
+        return category;
     }
 
-    public void setCatogery(ArrayList<Catogery> catogery) {
-        this.catogery = catogery;
+    public void setCategory(ArrayList<Category> category) {
+        this.category = category;
     }
 
     public ArrayList<Author> getAuthor() {

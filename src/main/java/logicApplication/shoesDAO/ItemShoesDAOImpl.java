@@ -19,9 +19,9 @@ import model.shoes.ItemShoes;
  *
  * @author trung
  */
-public class ItemShoesDAO extends DAO{
+public class ItemShoesDAOImpl extends DAO{
     
-    public ItemShoesDAO() {
+    public ItemShoesDAOImpl() {
         super();
     }
     

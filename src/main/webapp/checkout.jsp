@@ -6,11 +6,11 @@
 
 <head>
 <meta charset="UTF-8">
-<meta name="description" content="Ogani Template">
+<meta name="description" content="Ogani Shop">
 <meta name="keywords" content="Ogani, unica, creative, html">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
-<title>Ogani | Template</title>
+<title>Ogani | Shop</title>
 
 <!-- Google Font -->
 <link
@@ -60,7 +60,8 @@
 				</ul>
 			</div>
 			<div class="header__top__right__auth">
-				<a href="#"><i class="fa fa-user"></i> Login</a>
+				<a href="<%=request.getContextPath()%>/login"><i
+					class="fa fa-user"></i> Login</a>
 			</div>
 		</div>
 		<nav class="humberger__menu__nav mobile-menu">
@@ -72,9 +73,9 @@
 						<li><a href="./shop-details.jsp">Shop Details</a></li>
 						<li><a href="./shoping-cart.jsp">Shoping Cart</a></li>
 						<li><a href="./checkout.jsp">Check Out</a></li>
-						
+
 					</ul></li>
-			
+
 			</ul>
 		</nav>
 		<div id="mobile-menu-wrap"></div>
@@ -123,7 +124,8 @@
 								</ul>
 							</div>
 							<div class="header__top__right__auth">
-								<a href="#"><i class="fa fa-user"></i> Login</a>
+								<a href="<%=request.getContextPath()%>/login"><i
+									class="fa fa-user"></i> Login</a>
 							</div>
 						</div>
 					</div>
@@ -134,7 +136,8 @@
 			<div class="row">
 				<div class="col-lg-3">
 					<div class="header__logo">
-						<a href="<%=request.getContextPath()%>/Home"><img src="img/logo.png" alt=""></a>
+						<a href="<%=request.getContextPath()%>/Home"><img
+							src="img/logo.png" alt=""></a>
 					</div>
 				</div>
 				<div class="col-lg-6">
@@ -147,9 +150,9 @@
 									<li><a href="./shop-details.jsp">Shop Details</a></li>
 									<li><a href="./shoping-cart.jsp">Shoping Cart</a></li>
 									<li><a href="./checkout.jsp">Check Out</a></li>
-									
+
 								</ul></li>
-							
+
 						</ul>
 					</nav>
 				</div>
@@ -358,15 +361,33 @@
 									Products <span>Total</span>
 								</div>
 								<ul>
-									<li>Vegetable’s Package <span>$75.99</span></li>
-									<li>Fresh Vegetable <span>$151.99</span></li>
-									<li>Organic Bananas <span>$53.99</span></li>
+									<c:forEach var="item" items="${itemBook}">
+									<li><c:out value="${item.getBook().getTitle()}" /><span>$<c:out
+													value="${item.getPrice()}" /></span></li>
+
+									</c:forEach>
+									
+									<c:forEach var="item" items="${itemShoes}">
+									<li><c:out value="${item.getName()}" /> <span>$<c:out
+													value="${item.getPrice()}" /></span></li>
+									</c:forEach>
+
+									<c:forEach var="item" items="${itemClothes}">
+										<li><c:out value="${item.getClothes().getName()}" /> <span>$<c:out
+													value="${item.getPrice()}" /></span></li>
+									
+									
+									</c:forEach>
+									<c:forEach var="item" items="${itemElec}">
+									<li><c:out value="${item.getElectronic().getName()}" /> <span>$<c:out
+													value="${item.getPrice()}" /></span></li>
+									</c:forEach>
 								</ul>
 								<div class="checkout__order__subtotal">
-									Subtotal <span>$750.99</span>
+									Subtotal <span><c:out value="${cart.getTotalPrice()}"></c:out></span>
 								</div>
 								<div class="checkout__order__total">
-									Total <span>$750.99</span>
+									Total <span><c:out value="${cart.getTotalPrice()}"/></span>
 								</div>
 								<div class="checkout__input__checkbox">
 									<label for="acc-or"> Create an account? <input
@@ -396,7 +417,7 @@
 	<!-- Checkout Section End -->
 
 	<!-- Footer Section Begin -->
-	
+
 	<!-- Footer Section End -->
 
 	<!-- Js Plugins -->
