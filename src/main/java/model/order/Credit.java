@@ -2,7 +2,7 @@ package model.order;
 
 import java.sql.Date;
 
-public class Credit extends Payment{
+public class Credit extends Payment {
 	private String number;
 	private String type;
 	private Date date;

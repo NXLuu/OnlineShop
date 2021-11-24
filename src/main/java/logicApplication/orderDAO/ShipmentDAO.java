@@ -8,5 +8,5 @@ import model.order.Shipment;
 public interface ShipmentDAO {
 	public float getShipmentPrice(Shipment shipment);
 	public List<Shipment> findAll();
-	public void add(Payment payment);
+	public int add(Shipment shipment);
 }

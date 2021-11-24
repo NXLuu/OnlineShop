@@ -1,14 +1,23 @@
 package model.customer;
 
 public class FullName {
-	private String fullname;
+	private String firstName;
 	private String lastname;
+	private String midname;
 	private String nickname;
-	public String getFullname() {
-		return fullname;
+	
+	public String getMidname() {
+		return midname;
 	}
-	public void setFullname(String fullname) {
-		this.fullname = fullname;
+	public void setMidname(String midname) {
+		this.midname = midname;
+	}
+	
+	public String getFirstName() {
+		return firstName;
+	}
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
 	}
 	public String getLastname() {
 		return lastname;

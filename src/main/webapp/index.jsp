@@ -157,7 +157,9 @@ request.setAttribute("cart", cart);
 						<ul>
 							<li class="active"><a
 								href="<%=request.getContextPath()%>/Home">Home</a></li>
-							<li><a href="./shop-grid.jsp">Shop</a></li>
+							<li><a
+								href="<%=request.getContextPath()%>/order">Order</a></li>
+							
 							<li><a href="#">Pages</a>
 								<ul class="header__menu__dropdown">
 									<li><a href="./shop-details.jsp">Shop Details</a></li>
