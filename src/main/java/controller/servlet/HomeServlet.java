@@ -73,7 +73,7 @@ public class HomeServlet extends HttpServlet {
 		List<ItemClothes> listItemCloth = itemCloDAO.searchItemClothes("");
 		request.setAttribute("listItemCloth", listItemCloth);
 		
-		List<ItemShoes> listItemShoes = itemShoesDAOImpl.getAll();
+		List<ItemShoes> listItemShoes = itemShoesDAOImpl.findAll();
 		request.setAttribute("listItemShoes", listItemShoes);
 		
 		request.setAttribute("listItemElectronic", listItemElectronic);
