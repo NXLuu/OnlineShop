@@ -14,6 +14,19 @@ import java.io.Serializable;
  */
 public class Category  implements Serializable{
     
-    public int idshoes;
+    public int id;
     public String type;
+
+ 
+    public Category(String type) {
+        this.type = type;
+    }
+
+    public Category(int id, String type) {
+        this.id = id;
+        this.type = type;
+    }
+
+    
+    
 }

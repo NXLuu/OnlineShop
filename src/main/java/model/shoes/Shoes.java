@@ -13,14 +13,30 @@ import java.io.Serializable;
  */
 public class Shoes implements Serializable {
     private int id;
-    private String type, size, material, trademark, pattern, color;
-    private boolean gender;
+    private Category category;
+    private String  size, material, trademark, pattern, color;
+    private int gender;
     private  String description;
     private int promotion;
+    
+//    `ID` int NOT NULL,
+//    `Type` varchar(20) NOT NULL,
+//    `Size` varchar(20) NOT NULL,
+//    `Trademark` varchar(20) NOT NULL,
+//    `Materia` varchar(20) NOT NULL,
+//    `Pattern` varchar(20) NOT NULL,
+//    `Color` varchar(20) NOT NULL,
+//    `Gender` tinyint(1) NOT NULL,
+//    `Description` varchar(20) NOT NULL,
+//    `Promotion` int NOT NULL,
 
-    public Shoes(int id, String type, String size, String material, String trademark, String pattern, String color, boolean gender, String description, int promotion) {
+    public Shoes() {
+        
+    }
+
+    public Shoes(int id, Category category, String size, String material, String trademark, String pattern, String color, int gender, String description, int promotion) {
         this.id = id;
-        this.type = type;
+        this.category = category;
         this.size = size;
         this.material = material;
         this.trademark = trademark;
@@ -31,7 +47,15 @@ public class Shoes implements Serializable {
         this.promotion = promotion;
     }
 
- 
+    
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
+    }
+
    
     public int getId() {
         return id;
@@ -41,13 +65,6 @@ public class Shoes implements Serializable {
         this.id = id;
     }
 
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
 
     public String getSize() {
         return size;
@@ -89,11 +106,11 @@ public class Shoes implements Serializable {
         this.color = color;
     }
 
-    public boolean isGender() {
+    public int getGender() {
         return gender;
     }
 
-    public void setGender(boolean gender) {
+    public void setGender(int gender) {
         this.gender = gender;
     }
 
@@ -111,8 +128,5 @@ public class Shoes implements Serializable {
 
     public void setPromotion(int promotion) {
         this.promotion = promotion;
-    }
-    
-    
-    
+    }   
 }

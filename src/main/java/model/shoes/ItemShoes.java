@@ -14,43 +14,20 @@ import java.io.Serializable;
 public class ItemShoes implements Serializable{
     
     private int id;
+    private int idShoes;
     private String name;
     private float price;
     private String image;
     private float discount;
 
-    public ItemShoes(int id, String name, float price, String image, float discount) {
-        this.id = id;
+    public ItemShoes(int idShoes, String name, float price, String image, float discount) {
+        this.idShoes = idShoes;
         this.name = name;
         this.price = price;
         this.image = image;
         this.discount = discount;
     }
     
-    
-    
-    
-    
-
-    public ItemShoes(int id2) {
-		// TODO Auto-generated constructor stub
-    	this.id = id2;
-	}
-
-
-
-
-
-
-	public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-   
 
     
 
@@ -62,8 +39,13 @@ public class ItemShoes implements Serializable{
         this.id = id;
     }
 
-   
-   
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 
     public float getPrice() {
         return price;
@@ -88,7 +70,15 @@ public class ItemShoes implements Serializable{
     public void setDiscount(float discount) {
         this.discount = discount;
     }
-    
+
+    public int getIdShoes() {
+        return idShoes;
+    }
+
+    public void setIdShoes(int idShoes) {
+        this.idShoes = idShoes;
+    }
+
    
-    
+
 }
