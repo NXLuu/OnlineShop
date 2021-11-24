@@ -7,6 +7,6 @@ public interface CustomerDAO {
 	public void updateCustomer(Customer cust);
 	public void addCustomer(Customer cust);
 	public void deleteCustomer(Customer cust);
-	public void viewOrder(Order order);
+	public void viewOrder();
 	public Customer checkLogin(Customer customer);
 }

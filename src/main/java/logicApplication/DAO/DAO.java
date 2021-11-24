@@ -16,7 +16,7 @@ public class DAO {
     public DAO() {
         String jdbcURL = "jdbc:mysql://localhost:3306/onlineshop?useSSL=false";
         String jdbcUsername = "root";
-        String jdbcPassword = "luuvip16520"; //please change information to connect to DB
+        String jdbcPassword = "Vuxuanthevxt@123"; //please change information to connect to DB
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             con = DriverManager.getConnection(jdbcURL, jdbcUsername, jdbcPassword);

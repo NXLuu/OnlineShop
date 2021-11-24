@@ -54,7 +54,7 @@ public class LoginServlet extends HttpServlet {
 		Customer customer2 = customerDAO.checkLogin(customer);
 		if (customer2 != null) {
 			HttpSession session = request.getSession();
-			session.setAttribute("customer", customer);
+			session.setAttribute("customer", customer2);
 			System.out.println(request.getContextPath());
 			System.out.println(request.getRequestURL());
 			response.sendRedirect(request.getContextPath());

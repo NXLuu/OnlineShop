@@ -125,4 +125,11 @@ public class Electronic implements Serializable{
     public void setUpdateAt(Date updateAt) {
         this.updateAt = updateAt;
     }
+
+    @Override
+    public String toString() {
+        return "Electronic{" + "id=" + id + ", name=" + name + ", producer=" + producer + ", type=" + type + ", producerDate=" + producerDate + ", holdHouseId=" + holdHouseId + ", mobileId=" + mobileId + ", pcId=" + pcId + ", deleted=" + deleted + ", createAt=" + createAt + ", updateAt=" + updateAt + '}';
+    }
+    
+    
 }

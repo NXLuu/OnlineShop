@@ -110,6 +110,7 @@ public class ItemElectronicsDAO extends logicApplication.DAO.DAO implements Item
 				Electronic elec = new Electronic();
 				while (rs2.next()) {
 					elec.setName(rs2.getString(2));
+                                        elec.setProducer(rs2.getString(3));
 					elec.setId(rs2.getInt(1));
 				}
 

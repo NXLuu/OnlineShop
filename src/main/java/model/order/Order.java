@@ -3,13 +3,36 @@ package model.order;
 import java.sql.Date;
 
 import model.cart.Cart;
+import model.customer.Customer;
 
 public class Order {
+	private int ID;
 	private Date dateCreate;
 	private String status;
 	private Cart cart;
 	private Shipment shipment;
 	private Payment payment;
+	private Customer cust;
+	private String totalPrice;
+	
+	public String getTotalPrice() {
+		return totalPrice;
+	}
+	public void setTotalPrice(String totalPrice) {
+		this.totalPrice = totalPrice;
+	}
+	public int getID() {
+		return ID;
+	}
+	public void setID(int iD) {
+		ID = iD;
+	}
+	public Customer getCust() {
+		return cust;
+	}
+	public void setCust(Customer cust) {
+		this.cust = cust;
+	}
 	public Date getDateCreate() {
 		return dateCreate;
 	}

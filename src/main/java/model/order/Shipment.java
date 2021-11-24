@@ -1,20 +1,42 @@
 package model.order;
 
 public class Shipment {
+	private int ID;
 	private String name;
-	private String price;
+	private float price;
 	private String address;
+	private String tel;
+	private String method;
 	
+	
+	public int getID() {
+		return ID;
+	}
+	public void setID(int iD) {
+		ID = iD;
+	}
+	public String getMethod() {
+		return method;
+	}
+	public void setMethod(String method) {
+		this.method = method;
+	}
+	public String getTel() {
+		return tel;
+	}
+	public void setTel(String tel) {
+		this.tel = tel;
+	}
 	public String getName() {
 		return name;
 	}
 	public void setName(String name) {
 		this.name = name;
 	}
-	public String getPrice() {
+	public float getPrice() {
 		return price;
 	}
-	public void setPrice(String price) {
+	public void setPrice(float price) {
 		this.price = price;
 	}
 	public String getAddress() {

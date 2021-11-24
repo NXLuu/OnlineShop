@@ -139,6 +139,6 @@ public class ItemElectronic implements Serializable{
 
     @Override
     public String toString() {
-        return "ItemElectronic{" + "id=" + id + ", price=" + price + ", discount=" + discount + ", electronicId=" + electronicId + ", deleted=" + deleted + ", createAt=" + createAt + ", updateAt=" + updateAt + '}';
+        return "ItemElectronic{" + "id=" + id + ", price=" + price + ", discount=" + discount + ", electronicId=" + electronicId + ", deleted=" + deleted + ", createAt=" + createAt + ", updateAt=" + updateAt + ", image=" + image + ", electronic=" + electronic + '}';
     }
 }
